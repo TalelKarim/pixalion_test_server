@@ -3,13 +3,19 @@ kind: Deployment
 metadata:
   name: express-app
 spec:
+  selector:
+    matchLabels:
+      app: express-app  # This should match the label in the template
   template:
+    metadata:
+      labels:
+        app: express-app  # Label to match the selector
     spec:
       containers:
         - name: express-container
           image: talelch/pixalion_server:v2
-          command: ["/bin/sh","-c"]
-          args: ["bash env.sh" , "npm start"]
+          command: ["/bin/sh", "-c"]
+          args: ["bash env.sh", "npm start"]
           env:
             - name: MONGO_HOST
               valueFrom:
@@ -37,4 +43,4 @@ spec:
                   name: mongo-environment-secrets
                   key: MONGO_INITDB_DATABASE
       imagePullSecrets:
-            - name: regcred
+        - name: regcred
