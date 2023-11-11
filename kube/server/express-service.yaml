@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80  # The port your service listens on
       targetPort: 5000  # The port your container/application is listening on
-  type: ClusterIP  # Expose as a ClusterIP service
+  type: ClusterIP  # Expose as a ClusterIP type service
