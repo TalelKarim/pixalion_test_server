@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 27017
           volumeMounts:
-            - name: mongo-pv
+            - name: mongo-persistent-storage
               mountPath: /data/db
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
