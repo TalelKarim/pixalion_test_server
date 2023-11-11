@@ -8,4 +8,3 @@ spec:
   resources:
     requests:
       storage: 100Mi  # Requested storage size for the PVC
-  storageClassName: standard  # Specify the storage class name if applicable
