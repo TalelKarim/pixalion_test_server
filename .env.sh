@@ -2,11 +2,11 @@
 
 rm .env
 # Get the value of the USER environment variable
-MONGO_USER="myadmin"
-MONGO_PASSWORD="mypassword"
+MONGO_USER="$MONGO_USER"
+MONGO_PASSWORD="$MONGO_PASSWORD"
 MONGO_HOST="$MONGO_HOST"
-MONGO_PORT=27017
-MONGO_DATABASE="admin"
+MONGO_PORT=$MONGO_PORT
+MONGO_DATABASE="$MONGO_DATABASE"
 # Define the output file name
 output_file=".env"
 
