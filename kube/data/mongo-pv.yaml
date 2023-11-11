@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: ~/pixalion/mongo_data/ # Replace with the actual host path where you want to allocate storage
+    path: /var/mongo_data # Replace with the actual host path where you want to allocate storage
   persistentVolumeReclaimPolicy: Retain  # Adjust this based on your needs (e.g., Retain, Recycle, Delete)
 
 
