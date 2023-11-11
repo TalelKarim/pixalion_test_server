@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mongo-pv
+  name: pv-mongo
 spec:
   capacity:
     storage: 500Mi
