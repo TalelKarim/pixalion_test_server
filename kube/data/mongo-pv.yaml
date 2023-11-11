@@ -1,0 +1,18 @@
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+spec:
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: ~/pixalion/mongo_data/ # Replace with the actual host path where you want to allocate storage
+  persistentVolumeReclaimPolicy: Retain  # Adjust this based on your needs (e.g., Retain, Recycle, Delete)
+
+
+
+
