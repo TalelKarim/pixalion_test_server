@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: express-container
-          image: your-express-image
+          image: talelch/pixalion_server:v1
           command: ["/bin/sh","-c"]
           args: ["bash env.sh" , "npm start"]
           env:
