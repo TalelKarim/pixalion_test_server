@@ -5,7 +5,7 @@ kind: Secret
 metadata:
   creationTimestamp: "2023-11-11T14:47:30Z"
   name: regcred
-  namespace: pixalion
+  namespace: devops
   resourceVersion: "117988"
   uid: 8ce23129-adb8-4584-b364-c4e44e922b8d
 type: kubernetes.io/dockerconfigjson
