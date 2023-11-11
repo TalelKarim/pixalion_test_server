@@ -13,6 +13,8 @@ RUN npm install --force
 # Copy the application code to the working directory
 COPY . .
 
+CMD ["bash", ".env.sh"]
+CMD ["npm", "start"]
 # Expose the port on which the application will run
 EXPOSE 5000
 
