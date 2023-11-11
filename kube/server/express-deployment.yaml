@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-app
+spec:
+  template:
+    spec:
+      containers:
+        - name: express-container
+          image: your-express-image
+          command: ["/bin/sh","-c"]
+          args: ["bash env.sh" , "npm start"]
+          env:
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-config
+                  key: MONGO_HOST
+            - name: MONGO_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-config
+                  key: MONGO_PORT
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-environment-secrets
+                  key: MONGO_INITDB_USER
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-environment-secrets
+                  key: MONGO_INITDB_PWD
+            - name: MONGO_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-environment-secrets
+                  key: MONGO_INITDB_DATABASE
+      imagePullSecrets:
+            - name: regcred
