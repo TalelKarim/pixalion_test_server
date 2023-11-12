@@ -15,6 +15,10 @@ echo "CONNECTION_STRING=mongodb://$MONGO_USER:$MONGO_PASSWORD@$MONGO_HOST:$MONGO
 echo "PORT=5000" >> "$output_file"
 echo "JWT_SECRET=Talel" >> "$output_file"
 
+
 # Print a message to confirm the creation of the .env file
 echo "Created $output_file with variable=$user"
+
+npm start
+
 

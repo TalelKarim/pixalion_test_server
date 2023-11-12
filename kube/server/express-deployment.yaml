@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: express-container
-          image: talelch/pixalion_server:v5
+          image: talelch/pixalion_server:v6
           env:
             - name: MONGO_HOST
               valueFrom:
