@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: mongo-config
 data:
-  MONGO_HOST:  mongo-service.devops.svc.cluster.local
+  MONGO_HOST:  10.108.76.83
   MONGO_PORT: "27017"
