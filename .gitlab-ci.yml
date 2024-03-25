@@ -10,6 +10,9 @@ build_image:
     - docker build -t ${DOCKER_REPOSITORY}/pixalion_server -f docker/Dockerfile .
   only:
     - iac   
+  tags:
+     - gitlab-org-docker
+  
 
 
 #second stage
@@ -21,6 +24,9 @@ deploy_image:
     - docker push ${DOCKER_REPOSITORY}/pixalion_server
   only:
     - iac 
+  tags: 
+    - gitlab-org-docker
+  
 
 
 
