@@ -5,23 +5,22 @@ stages:
 # first stage  
 build_image:
   stage: build
+  image: docker:latest
   script:
-    - docker build -t ${DOCKER_REPOSITORY}/talelch/pixalion_server -f docker/Dockerfile .
+    - docker build -t ${DOCKER_REPOSITORY}/pixalion_server -f docker/Dockerfile .
   only:
     - iac   
-  tags:
-    - imgbuilder
 
 
 #second stage
 deploy_image:
   stage: deploy
+  image: docker:latest
   script:
     - docker login -u ${USERNAME} -p ${PASSWORD} 
-    - docker push ${DOCKER_REPOSITORY}/talelch/pixalion_server
+    - docker push ${DOCKER_REPOSITORY}/pixalion_server
   only:
     - iac 
-  tags:
-    - imgbuilder
+
 
 
