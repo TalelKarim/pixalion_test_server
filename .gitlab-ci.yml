@@ -5,25 +5,29 @@ stages:
 # first stage  
 build_image:
   stage: build
+  image: docker
+  services:
+    - docker:dind
   script:
     - docker build -t ${DOCKER_REPOSITORY}/pixalion_server -f docker/Dockerfile .
   only:
     - iac   
-  tags:
-     - docker
+
   
 
 
 #second stage
 deploy_image:
   stage: deploy
+  image: docker
+  services:
+    - docker:dind
   script:
     - docker login -u ${USERNAME} -p ${PASSWORD} 
     - docker push ${DOCKER_REPOSITORY}/pixalion_server
   only:
     - iac 
-  tags: 
-    - docker
+
   
 
 
