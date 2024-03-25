@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+# first stage  
+build_image:
+  stage: build
+  script:
+    - docker build -t ${DOCKER_REPOSITORY}/talelch/pixalion_server -f docker/Dockerfile .
+  only:
+    - iac   
+  tags:
+    - imgbuilder
+
+
+#second stage
+deploy_image:
+  stage: deploy
+  script:
+    - docker login -u ${USERNAME} -p ${PASSWORD} 
+    - docker push ${DOCKER_REPOSITORY}/talelch/pixalion_server
+  only:
+    - iac 
+  tags:
+    - imgbuilder
+
+
