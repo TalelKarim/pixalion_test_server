@@ -30,6 +30,12 @@ app.use(
 app.use('/', userRouter);
 app.use('/', courseRouter);
 
+
+// Define a simple health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.listen(port, () => {
   console.log(`app listening on port ${port}`.yellow.bold);
 });
